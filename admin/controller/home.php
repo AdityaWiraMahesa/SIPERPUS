@@ -1,3 +1,3 @@
 <?php
-echo md5("1001");
+echo "Home";
 ?>
