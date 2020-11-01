@@ -1,3 +1,3 @@
 <?php
-echo "Home";
+include_once 'views/vloginnew.php';
 ?>
