@@ -7,6 +7,18 @@ if($con->auth()){
         case 'petugas':
             include_once 'controller/petugas.php';
             break;
+        case 'anggota':
+            include_once 'controller/anggota.php';
+            break;
+        case 'buku':
+            include_once 'controller/petugas.php';
+            break;
+        case 'peminjaman':
+            include_once 'controller/petugas.php';
+            break;
+        case 'pengembalian':
+            include_once 'controller/petugas.php';
+            break;
         default:
             include_once 'controller/home.php';
             break;
