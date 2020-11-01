@@ -13,20 +13,21 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="col-sm-5"></div>
+    <div class="col-sm-10 ">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"></nav>
         <div class="content center">
             <hr>
-            <div class="col-sm-offset-4 col-md-4 ">
-                <h3>LOGIN ADMIN</h3>
+            <div class="col-sm-offset-4 col-md-4 content-center">
+                <h3>LOGIN</h3>
                 <form action="" method="POST">
                     <div class="form-group">
-                        <label for="nama">Nama :</label>
-                        <input type="text" name="nama" class="form-control">
+                        <label for="username">Username :</label>
+                        <input type="text" name="username" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="id">Id Petugas :</label>
-                        <input type="password" name="id" class="form-control">
+                        <label for="password">Password :</label>
+                        <input type="password" name="password" class="form-control">
                         <span><?= (isset($msg)) ? $msg : ''; ?></span>
                         <hr>
                     </div>
@@ -37,6 +38,8 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-8"></div>
 </body>
+
 
 </html>
