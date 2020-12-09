@@ -13,14 +13,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome.min.css" />
     <title></title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><b>E-PERPUSTAKAAN</b></a>
+        <a class="navbar-brand" href="#"><b>e-Perpustakaan</b></a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -34,7 +35,11 @@
         <div class="col-md-2 bg-dark pr-3 pt-3">
             <ul class="nav flex-column ml-2 mb-5">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a class="nav-link active text-white" href="index.php"><i class="fas fa-trush fa-3x"></i>Dashboard</a>
+                    <hr class="bg-secondary">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index.php?mod=admin">Data Admin</a>
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
@@ -60,8 +65,6 @@
             </ul>
         </div>
         <div class="col-md-10 p-3 pt-2">
-            <h3>DATA PETUGAS</h3>
-            <hr>
             <?php include_once $content; ?>
         </div>
     </div>
