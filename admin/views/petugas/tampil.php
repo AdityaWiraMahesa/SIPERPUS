@@ -12,12 +12,11 @@
 </head>
 
 <body>
-
-
     <div class="row">
         <div class="pull-right mb-2 ml-2">
+            <h3 class="mb-5"><b>DATA PETUGAS</b></h3>
             <a href="index.php?mod=petugas&page=add">
-                <button class="btn btn-success ml-auto">Add</button>
+                <button class="btn btn-success">Tambah Data</button>
             </a>
         </div>
     </div>
@@ -26,8 +25,7 @@
             <thead>
                 <tr class="bg-primary text-white">
                     <td>No</td>
-                    <td>Id Petugas</td>
-                    <td>Nama</td>
+                    <td>Nama Lengkap</td>
                     <td>Alamat</td>
                     <td>Jenis Kelamin</td>
                     <td>No. Telp</td>
@@ -40,7 +38,6 @@
                     foreach ($petugas as $row) { ?>
                         <tr>
                             <td><?= $no ?></td>
-                            <td><?= $row['Id_Petugas'] ?></td>
                             <td><?= $row['Nama'] ?></td>
                             <td><?= $row['Alamat'] ?></td>
                             <td><?= $row['Jenis_Kelamin'] ?></td>
