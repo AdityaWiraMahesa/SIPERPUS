@@ -1,3 +1,4 @@
 <?php
-include_once 'views/vloginnew.php';
+$content = "views/dashboard.php";
+include_once 'views/template.php';
 ?>
