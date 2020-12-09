@@ -9,9 +9,9 @@ switch (@$_GET['page']) {
     case 'save':
         if($_SERVER['REQUEST_METHOD']=="POST"){
             //validasi
-            if(!is_numeric($_POST['id_petugas'])){
-                $err['id_petugas']="Id Petugas Wajib Angka";
-            }
+            /* if(!is_numeric($_POST['id_petugas'])){
+                $err['id_Petugas']="Id Petugas Wajib Angka";
+            } */
             if (empty($_POST['nama'])) {
                 $err['nama'] = "Nama Wajib Diisi";
             }
@@ -24,15 +24,15 @@ switch (@$_GET['page']) {
 
             if(!isset($err)){
                 $password = md5($_POST['password']);
-                if (!empty($_POST['id_dokter'])) {
-                    //update
-                    $sql = "update dokter set nama_dokter='$_POST[nama_dokter]',no_peserta_idi='$_POST[no_id]', nip='$_POST[nip]',id_pendidikan='$_POST[id_pendidikan]',
-                    id_spesialis='$_POST[id_spesialisasi]',id_pegawai=$id_pegawai where md5(id_dokter)='$_POST[id_dokter]'";
-                }else {
-                    //save
-                    $sql = "INSERT INTO petugas (id_petugas, nama, username, password, alamat, jenis_kelamin, no_telp)
-                VALUES ('$_POST[id_petugas]','$_POST[nama]','$_POST[username]','$password','$_POST[alamat]','$_POST[jenis_kelamin]','$_POST[no_telp]')";
-                }
+                /* $query = mysqli_query($koneksi, "SELECT max(Id_Petugas) as Id_PetugasTerbesar FROM petugas");
+                $data = mysqli_fetch_array($query);
+                $id = $data['Id_PetugasTerbesar'];
+                $urutan = (int) substr($id, 3, 3);
+                $urutan++;
+                $id = sprintf("%04s", $urutan); */
+                //save
+                $sql = "INSERT INTO petugas (id_petugas, nama, username, password, alamat, jenis_kelamin, no_telp)
+                VALUES ('$id','$_POST[nama]','$_POST[username]','$password','$_POST[alamat]','$_POST[jenis_kelamin]','$_POST[no_telp]')";
                     if ($conn->query($sql) === TRUE) {
                         header('Location: ' . $con->site_url() . '/admin/index.php?mod=petugas');
                     } else {
@@ -46,6 +46,21 @@ switch (@$_GET['page']) {
             $content = "views/petugas/tambah.php";
             include_once 'views/template.php';
         }
+    break;    
+    case 'update':
+        $password = md5($_POST['password']);
+        $sql = "UPDATE petugas SET id_petugas='$_POST[id_petugas]',username='$_POST[username]',password='$password',nama='$_POST[nama]',
+        alamat='$_POST[alamat]',jenis_kelamin='$_POST[jenis_kelamin]',no_telp='$_POST[no_telp]' where id_petugas='$_POST[id_petugas]'";
+        if ($conn->query($sql) === TRUE) {
+            header('Location: ' . $con->site_url() . '/admin/index.php?mod=petugas');
+        } else {
+            $err['msg'] = "Error: " . $sql . "<br>" . $conn->error;
+        }
+        if (isset($err)) {
+            $content = "views/petugas/update.php";
+            include_once 'views/template.php';
+        }
+    
     break;
     case 'edit':
         $petugas = "SELECT * FROM petugas WHERE md5(id_petugas)='$_GET[id]'";
