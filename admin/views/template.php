@@ -8,58 +8,64 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="./siperpus/assets/admin.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/siperpus/assets/css/template.css">
     <title></title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow" style="background-image: linear-gradient(0deg, #FFCF18, #FF8818);">
         <a class="navbar-brand" href="#"><b>e-Perpustakaan</b></a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0 rounded-pill" type="submit">Search</button>
         </form>
-        <ul class="nav pull-right navbar-nav navbar-right ml-2">
-            <li><a href="../admin/controller/logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <ul class="nav pull-right navbar-nav navbar-right ml-3">
+            <li><a href="../admin/controller/logout.php" class="text-dark"><span class="glyphicon glyphicon-log-in"></span><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</a></li>
         </ul>
-        </div>
     </nav>
     <div class="row no-gutters">
-        <div class="col-md-2 bg-dark pr-3 pt-3">
-            <ul class="nav flex-column ml-2 mb-5">
+        <div class="col-md-2 bg-dark shadow-sm">
+            <div class="pt-4 pb-4 text-xl-center" style="background-color: #333;">
+                <div class="">
+                    <i class="fas fa-user-circle fa-2x text-white"></i>
+                </div>
+                <div class="mt-3">
+                    <p class="mb-0 text-white"><?php echo $_SESSION['login']['nama']; ?></p>
+                    <a href="index.php?mod=admin&page=profil&id=<?= md5($_SESSION['login']['id']); ?>"" style=" font-size: 11px;">Edit Profil</a>
+                </div>
+            </div>
+            <ul class="nav flex-column ml-2 mt-3">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="index.php"><i class="fas fa-trush fa-3x"></i>Dashboard</a>
+                    <a class="nav-link active text-white pt-1 pb-1" href="index.php"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?mod=admin">Data Admin</a>
+                    <a class="nav-link text-white pt-1 pb-1" href="index.php?mod=admin"><i class="fas fa-user-cog mr-3"></i>Data Admin</a>
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?mod=petugas">Data Petugas</a>
+                    <a class="nav-link text-white pt-1 pb-1" href="index.php?mod=petugas"><i class="fas fa-user-edit mr-3"></i>Data Petugas</a>
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?mod=anggota">Data Anggota</a>
+                    <a class="nav-link text-white pt-1 pb-1" href="index.php?mod=anggota"><i class="fas fa-user mr-3"></i>Data Anggota</a>
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?mod=buku">Data Buku</a>
+                    <a class="nav-link text-white pt-1 pb-1" href="index.php?mod=buku"><i class="fas fa-book mr-3"></i>Data Buku</a>
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?mod=peminjaman">Peminjaman</a>
+                    <a class="nav-link text-white pt-1 pb-1" href="index.php?mod=peminjaman"><i class="fas fa-book-open mr-3"></i>Peminjaman</a>
                     <hr class="bg-secondary">
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?mod=pengembalian">Pengembalian</a>
+                <li class="nav-item pb-3">
+                    <a class="nav-link text-white pt-1 pb-1" href="index.php?mod=pengembalian"><i class="fas fa-book-reader mr-3"></i>Pengembalian</a>
                     <hr class="bg-secondary">
                 </li>
             </ul>
@@ -68,7 +74,7 @@
             <?php include_once $content; ?>
         </div>
     </div>
-    </div>
+
     <div id="myModal " class="modal fade " role="dialog ">
         <div class="modal-dialog ">
             <!-- Modal content-->
@@ -84,9 +90,12 @@
                     <button type="button " class="btn btn-default " data-dismiss="modal ">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
+    <div class="footer mr-0 bg-dark ">
+        <p class="small text-center my-1">&copy;2020. Develop with <i class="fas fa-heart text-danger"></i> by Aditya Wira Mahesa</p>
+    </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
